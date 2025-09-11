@@ -5,7 +5,11 @@
   <parameter name="browser" value="chrome"></parameter>
     <classes>
      
-      <class name="testscript.ManageCategoryTest"/>
+      <class name="testscript.ManageCategoryTest">
+      <methods>
+      <include name="addNewCategory"></include>
+      </methods>
+      </class>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
