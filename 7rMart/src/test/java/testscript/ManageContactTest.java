@@ -7,54 +7,41 @@ import org.testng.annotations.Test;
 
 import constant.Constant;
 import pages.LoginPage;
+import pages.LogoutPage;
 import pages.ManageContactPage;
 import utilities.ExcelUtility;
 import utilities.FakerUtility;
 
 public class ManageContactTest extends Base {
-	
 
-	
+	ManageContactPage managecontactpage;
+	LogoutPage logoutpage;
+
 	@Test(priority = 1)
-	public void updateContactInfo() throws IOException 
-	{
-		String loginUserName = ExcelUtility.getstringData(1,0, "LoginPage"); 
-		String loginPassword = ExcelUtility.getstringData(1,1, "LoginPage");
-		
+	public void updateContactInfoInManageCategory() throws IOException {
+		String loginUserName = ExcelUtility.getstringData(1, 0, "LoginPage");
+		String loginPassword = ExcelUtility.getstringData(1, 1, "LoginPage");
+
 		LoginPage loginPage = new LoginPage(driver);
-		loginPage.enterusername(loginUserName);
-		loginPage.enterpassword(loginPassword);
-		loginPage.sigin();
-		
+		loginPage.enterUsername(loginUserName).enterPassword(loginPassword);
+	logoutpage=	loginPage.sigin();
+
+		//LogoutPage logoutpage = new LogoutPage(driver);
+		managecontactpage = logoutpage.clickManageContactMoreInfo();
+
 		FakerUtility fakerUtility = new FakerUtility();
-		String phoneNumber = "9995554444";
+		String phoneNumber = fakerUtility.generatePhoneNumber();
+		String email = fakerUtility.generateEmail();
 		String address = fakerUtility.generateAddress();
-		String time =  "10";
-		int chargeLimit = 300;
-		String email="six";
-		
-		ManageContactPage managecontactpage =new  ManageContactPage(driver);
-		managecontactpage.clickManageContactMoreInfo();
-		managecontactpage.clickContactEditIcon();
-		managecontactpage.updatePhoneNumber(phoneNumber);
-		managecontactpage.updateEmail(email);
-		managecontactpage.updateAddress(address);
-		managecontactpage.updateDeliveryChargeLimit(chargeLimit);
-		managecontactpage.clickUpdateContactInfoButton();
-		Assert.assertTrue(managecontactpage.isSuccessAlertDisplayed(), "Success Alert is not displayed");
-		
-		
-		
-	/*	managecontactpage = new ManageContactPage(driver);
-		managecontactpage.clickContactEditIcon()
-							.updatePhoneNumber(phoneNumber)
-							.updateEmail(email)
-							.updateAddress(address)
-							.updateDeliveryTime(time)
-							.updateDeliveryChargeLimit(chargeLimit)
-							.clickUpdateContactInfoButton();
-		
-		Assert.assertTrue(managecontactpage.isSuccessAlertDisplayed(), "Success Alert is not displayed");*/
+		String time = ExcelUtility.getTimeData(0, 0, "DeliveryTime");
+		String chargeLimit = ExcelUtility.getIntegerData(1, 1, "ConstantValues");
+
+		//managecontactpage = new ManageContactPage(driver);
+		managecontactpage.clickContactEditIcon().updatePhoneNumber(phoneNumber).updateEmail(email)
+				.updateAddress(address).updateDeliveryTime(time).updateDeliveryChargeLimit(chargeLimit)
+				.clickUpdateContactInfoButton();
+
+		Assert.assertTrue(managecontactpage.isSuccessAlertDisplayed(), Constant.CONTACTPAGEALERTERRORMESSAGE);
 	}
 
 }// End of class

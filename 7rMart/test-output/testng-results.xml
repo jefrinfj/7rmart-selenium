@@ -1,39 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="0" passed="0" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-09-11T11:22:40 IST" name="Suite" finished-at="2025-09-11T11:22:45 IST" duration-ms="4420">
+  <suite started-at="2025-09-22T10:27:44 IST" name="MultiBrowserTesting" finished-at="2025-09-22T10:27:44 IST" duration-ms="11">
     <groups>
     </groups>
-    <test started-at="2025-09-11T11:22:40 IST" name="Test" finished-at="2025-09-11T11:22:45 IST" duration-ms="4420">
-      <class name="testscript.ManageCategoryTest">
-        <test-method is-config="true" signature="initialisebrowser(java.lang.String)[pri:0, instance:testscript.ManageCategoryTest@65fb9ffc]" started-at="2025-09-11T11:22:40 IST" name="initialisebrowser" finished-at="2025-09-11T11:22:43 IST" duration-ms="2831" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[chrome]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- initialisebrowser -->
-        <test-method signature="addNewCategory()[pri:2, instance:testscript.ManageCategoryTest@65fb9ffc]" started-at="2025-09-11T11:22:43 IST" name="addNewCategory" finished-at="2025-09-11T11:22:44 IST" duration-ms="1355" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- addNewCategory -->
-        <test-method is-config="true" signature="browserQuit(org.testng.ITestResult)[pri:0, instance:testscript.ManageCategoryTest@65fb9ffc]" started-at="2025-09-11T11:22:44 IST" name="browserQuit" finished-at="2025-09-11T11:22:45 IST" duration-ms="182" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=addNewCategory status=SUCCESS method=ManageCategoryTest.addNewCategory()[pri:2, instance:testscript.ManageCategoryTest@65fb9ffc] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- browserQuit -->
-      </class> <!-- testscript.ManageCategoryTest -->
-    </test> <!-- Test -->
-  </suite> <!-- Suite -->
+    <test started-at="2025-09-22T10:27:44 IST" name="ChromeTest" finished-at="2025-09-22T10:27:44 IST" duration-ms="11">
+    </test> <!-- ChromeTest -->
+  </suite> <!-- MultiBrowserTesting -->
 </testng-results>

@@ -1,6 +1,5 @@
 package pages;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -8,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import constant.Constant;
 import utilities.FileUploadUtility;
-import utilities.JavaExecutionUtility;
+import utilities.PageUtility;
 import utilities.WaitUtility;
 
 public class ManageCategoryPage {
@@ -24,6 +23,7 @@ public class ManageCategoryPage {
 	@FindBy(xpath="//input[@id='main_img']")WebElement chooseFileButtonInAddNewCategory;
 	@FindBy(xpath="//button[@name='create']")WebElement saveButtonInAddNewCategory;
 	@FindBy(xpath="//div[@class='alert alert-success alert-dismissible']")WebElement successAlertBox;
+	@FindBy(xpath="//b[text()='Fatal error']")WebElement fatalErrorMessage;
 	
 	public ManageCategoryPage(WebDriver driver) 
 		{
@@ -31,10 +31,10 @@ public class ManageCategoryPage {
 		PageFactory.initElements(driver, this);
 		}	
 	
-	public void clickManageCategoryMoreInfo() 
+	/*/public void clickManageCategoryMoreInfo() 
 			{
 		moreInfoCategory.click();
-			}
+			}*/
 	
 	public ManageCategoryPage clickEditIcon()
 		{
@@ -51,12 +51,18 @@ public class ManageCategoryPage {
 	
 	public ManageCategoryPage clickUpdateButton() 
 		{
-		WaitUtility.waitForElementToBeClickable(driver, updateButton);
-		JavascriptExecutor js = (JavascriptExecutor) driver; //typecast the driver to JavascriptExecutor
-		js.executeScript("window.scrollBy(0,150)",""); 
+		
+		WaitUtility waitutility = new WaitUtility();
+		waitutility.waitForElementToBeClickable(driver, updateButton);
+		
+		PageUtility pageutlility = new PageUtility();
+		pageutlility.javaScriptScrollToBottom(driver);
+		pageutlility.javaScriptClick(driver, updateButton);
+		//JavascriptExecutor js = (JavascriptExecutor) driver; //typecast the driver to JavascriptExecutor
+		//js.executeScript("window.scrollBy(0,150)",""); 
 		//js.executeScript("arguments[0].click();", updateButton);
-		JavaExecutionUtility javaexecutionutility = new JavaExecutionUtility();
-		javaexecutionutility.javaScriptClick(driver, updateButton);
+		//JavaExecutionUtility javaexecutionutility = new JavaExecutionUtility();
+		//javaexecutionutility.javaScriptClick(driver, updateButton);
 		return this;
 		}
 	
@@ -75,21 +81,31 @@ public class ManageCategoryPage {
 	public ManageCategoryPage clickChooseFileButtonInAddNewCategory() 
 		{
 		FileUploadUtility fileUploadutility = new FileUploadUtility();
-		fileUploadutility.fileUploadUsingSendkeys(chooseFileButtonInAddNewCategory, Constant.TESTIMAGEFILEPATH);
+		fileUploadutility.fileUploadUsingSendkeys(chooseFileButtonInAddNewCategory, Constant.TESTIMAGEFILEPATH2);
 		return this;
 		}
 	
 	public ManageCategoryPage clickSaveButtonInAddNewCategory() 
 		{
-		JavascriptExecutor js = (JavascriptExecutor) driver; //typecast the driver to JavascriptExecutor
-		js.executeScript("window.scrollBy(0,150)",""); 
-		js.executeScript("arguments[0].click();", saveButtonInAddNewCategory);
+	//	JavascriptExecutor js = (JavascriptExecutor) driver; //typecast the driver to JavascriptExecutor
+		//js.executeScript("window.scrollBy(0,150)",""); 
+	//	js.executeScript("arguments[0].click();", saveButtonInAddNewCategory);
+		
+		PageUtility pageutlility = new PageUtility();
+		pageutlility.javaScriptScrollToBottom(driver);
+		pageutlility.javaScriptScrollToBottom(driver);
+		pageutlility.javaScriptClick(driver, saveButtonInAddNewCategory);
 		return this;
 		}
 	
 	public boolean isSuccessAlertDisplayed() 
 		{
 		return successAlertBox.isDisplayed();
+		}
+	
+	public boolean isFatalErrorMessageDisplayed() 
+		{
+		return fatalErrorMessage.isDisplayed();
 		}
 	
 	

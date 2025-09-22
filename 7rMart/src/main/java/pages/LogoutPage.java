@@ -25,7 +25,7 @@ public class LogoutPage {
 		PageFactory.initElements(driver, this); 
 		}
 	
-	/*public AdminUsersPage adminUserMoreInfo()
+	public AdminUsersPage adminUserMoreInfo()
 		{
 		addAdminLink.click();
 		return new AdminUsersPage(driver);
@@ -47,9 +47,13 @@ public class LogoutPage {
 	{
 	moreInfoLink.click();
 	return new ManageFooterTextPage(driver);
-	}*/
+	}
 	
-	
+	public ManageNewsPage clickManageNewsMoreInfo() 
+	{
+		newsDescription.click();
+		return new ManageNewsPage(driver);
+	}
 	
 	public void clickProfileIcon() 
 		{

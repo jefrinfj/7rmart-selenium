@@ -2,7 +2,8 @@ package utilities;
 
 import com.github.javafaker.Faker;
 
-public class FakerUtility {  //For fake data generation(fake email, phone no etc..)
+public class FakerUtility {
+	
 	Faker faker = new Faker();
 
 	public String creatARandomFirstName() {
@@ -29,6 +30,10 @@ public class FakerUtility {  //For fake data generation(fake email, phone no etc
 
 	}
 	
+	public String generatePhoneNumber() {
+	    return faker.number().digits(10);  // e.g., "9876543210"
+	}
+	
+
 
 }
-

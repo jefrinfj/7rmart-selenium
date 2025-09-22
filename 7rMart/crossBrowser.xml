@@ -6,7 +6,7 @@
   <parameter name="browser" value="chrome"></parameter>
     <classes>
      <!--
-      <class name="testScript.AdminUsersTest">  
+      <class name="testScript.ManageCategoryTest">  
        <methods>
       <include name="testAddAdmin"/>
       </methods>

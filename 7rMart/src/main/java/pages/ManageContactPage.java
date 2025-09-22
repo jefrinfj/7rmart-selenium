@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utilities.PageUtility;
+
 
 
 public class ManageContactPage {
@@ -28,10 +30,10 @@ public class ManageContactPage {
 		PageFactory.initElements(driver, this);
 	}
 	
-	public void clickManageContactMoreInfo() 
+	/*public void clickManageContactMoreInfo() 
 	{
 		MoreInfoContact.click();
-	}
+	}*/
 	
 	public ManageContactPage clickContactEditIcon() 
 	{
@@ -67,7 +69,7 @@ public class ManageContactPage {
 		return this;
 	}
 	
-	public ManageContactPage updateDeliveryChargeLimit(int chargeLimit) 
+	public ManageContactPage updateDeliveryChargeLimit(String chargeLimit) 
 	{
 		deliveryChargeLimitUpdateTextBox.clear();
 		deliveryChargeLimitUpdateTextBox.sendKeys(String.valueOf(chargeLimit));
@@ -76,9 +78,9 @@ public class ManageContactPage {
 	
 	public ManageContactPage clickUpdateContactInfoButton() 
 	{
-		JavascriptExecutor js = (JavascriptExecutor) driver; //typecast the driver to JavascriptExecutor
-		js.executeScript("window.scrollBy(0,150)",""); 
-		js.executeScript("arguments[0].click();", updateContactInfoButton);
+		PageUtility pageutlility = new PageUtility();
+		pageutlility.javaScriptScrollToBottom(driver);
+		pageutlility.javaScriptClick(driver, updateContactInfoButton);
 		return this;	
 	}
 	

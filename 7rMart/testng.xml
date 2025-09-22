@@ -5,9 +5,9 @@
   <parameter name="browser" value="chrome"></parameter>
     <classes>
      
-      <class name="testscript.ManageCategoryTest">
+      <class name="testscript.AdminUsersTest">
       <methods>
-      <include name="addNewCategory"></include>
+      <include name="updateDetailsOfAnExistingAdminInAdminUsersTest"></include>
       </methods>
       </class>
     </classes>

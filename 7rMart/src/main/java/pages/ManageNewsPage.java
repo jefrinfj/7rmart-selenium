@@ -30,10 +30,10 @@ public class ManageNewsPage {
 		PageFactory.initElements(driver, this);
 	}
 	
-	public void clickManageNewsMoreInfo() 
+	/*public void clickManageNewsMoreInfo() 
 	{
 		newsDescription.click();
-	}
+	}*/
 	
 	public ManageNewsPage clickAddNewButton() 
 	{
