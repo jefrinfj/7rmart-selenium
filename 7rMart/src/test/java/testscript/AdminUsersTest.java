@@ -33,7 +33,7 @@ public class AdminUsersTest extends Base {
 		String loginUserNameAdmin = fakerutility.creatARandomFirstName();
 		String loginPasswordAdmin = fakerutility.creatARandomFirstName();
 
-		adminuserspage = new AdminUsersPage(driver);
+		//adminuserspage = new AdminUsersPage(driver);
 		adminuserspage.clickAddNewAdminButton().enterNewAdminUsername(loginUserNameAdmin)
 				.enterNewAdminPassword(loginPasswordAdmin).selectUserType().clickSaveAdminButton();
 
