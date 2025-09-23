@@ -8,18 +8,21 @@ import org.testng.annotations.Test;
 
 import constant.Constant;
 import pages.LoginPage;
+import pages.LogoutPage;
 import utilities.ExcelUtility;
 
 public class LoginTest extends Base {
+	LogoutPage logoutpage;
 
 	@Test(priority = 1, groups = { "regression" })
 	public void verificationOfLoginWithValidUsernameAndPasswordTest() throws IOException {
 		String loginUserName = ExcelUtility.getstringData(1, 0, "LoginPage");
 		String loginPassword = ExcelUtility.getstringData(1, 1, "LoginPage");
 		LoginPage loginPage = new LoginPage(driver);
-		loginPage.enterUsername(loginUserName);
-		loginPage.enterPassword(loginPassword);
-		loginPage.sigin();
+		loginPage.enterUsername(loginUserName).enterPassword(loginPassword);
+	logoutpage=	loginPage.sigin();
+	//	loginPage.enterPassword(loginPassword);
+		//loginPage.sigin();
 		boolean isHomePageLoaded = loginPage.isHomePageDisplayed();
 		Assert.assertTrue(isHomePageLoaded, Constant.HOMEPAGENOTLOADEDMESSAGE);
 	}
@@ -29,9 +32,11 @@ public class LoginTest extends Base {
 		String loginUserName = ExcelUtility.getstringData(2, 0, "LoginPage");
 		String loginPassword = ExcelUtility.getstringData(2, 1, "LoginPage");
 		LoginPage loginPage = new LoginPage(driver);
-		loginPage.enterUsername(loginUserName);
-		loginPage.enterPassword(loginPassword);
-		loginPage.sigin();
+	//	loginPage.enterUsername(loginUserName);
+	//	loginPage.enterPassword(loginPassword);
+	//	loginPage.sigin();
+		loginPage.enterUsername(loginUserName).enterPassword(loginPassword);
+	logoutpage=	loginPage.sigin();
 		boolean isAlertDisplayed = loginPage.isAlertDisplayed();
 		Assert.assertTrue(isAlertDisplayed, Constant.LOGINPAGEALERTERRORMESSAGE);
 	}
@@ -54,9 +59,11 @@ public class LoginTest extends Base {
 		// String loginUserName = ExcelUtility.getstringData(4,0, "LoginPage");
 		// String loginPassword = ExcelUtility.getstringData(4,1, "LoginPage");
 		LoginPage loginPage = new LoginPage(driver);
-		loginPage.enterUsername(loginUserName);
-		loginPage.enterPassword(loginPassword);
-		loginPage.sigin();
+	//	loginPage.enterUsername(loginUserName);
+		//loginPage.enterPassword(loginPassword);
+		//loginPage.sigin();
+		loginPage.enterUsername(loginUserName).enterPassword(loginPassword);
+	logoutpage=	loginPage.sigin();
 		boolean isAlertDisplayed = loginPage.isAlertDisplayed();
 		Assert.assertTrue(isAlertDisplayed, Constant.LOGINPAGEALERTERRORMESSAGE);
 	}

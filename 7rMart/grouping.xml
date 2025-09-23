@@ -15,10 +15,7 @@
       </class> -->
     
       <class name="testscript.Logintest">
-      <methods>
-      <include name="verifyUserCanLoginWithCorrectUsernameAndPassword">
-      </include>
-      </methods>
+      
       </class>
      
       

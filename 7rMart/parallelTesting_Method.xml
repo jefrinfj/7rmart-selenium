@@ -10,7 +10,7 @@
       <methods>
       <include name="editNewsTest"></include>
     
-      <include name="test"></include>
+    
       </methods>
       </class>
       

@@ -25,9 +25,9 @@ public class ManageFooterTextTest extends Base {
 		loginPage.enterUsername(loginUserName).enterPassword(loginPassword);
 	logoutpage=	loginPage.sigin();
 
-		ManageFooterTextPage managefootertextpage = new ManageFooterTextPage(driver);
+	//	ManageFooterTextPage managefootertextpage = new ManageFooterTextPage(driver);
 
-		LogoutPage logoutpage = new LogoutPage(driver);
+	//	LogoutPage logoutpage = new LogoutPage(driver);
 		managefootertextpage = logoutpage.ClickManageFooterTextMoreInfo();
 
 		FakerUtility fakerUtility = new FakerUtility();

@@ -47,7 +47,8 @@ public class AdminUsersTest extends Base {
 		String loginPassword = ExcelUtility.getstringData(1, 1, "LoginPage");
 
 		LoginPage loginPage = new LoginPage(driver);
-		loginPage.enterUsername(loginUserName).enterPassword(loginPassword).sigin();
+		loginPage.enterUsername(loginUserName).enterPassword(loginPassword);
+	logoutpage=	loginPage.sigin();
 
 		//LogoutPage logoutpage = new LogoutPage(driver);
 		adminuserspage = logoutpage.adminUserMoreInfo();
